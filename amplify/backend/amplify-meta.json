@@ -1,0 +1,52 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-awesomeproject-dev-114748-authRole",
+      "UnauthRoleArn": "arn:aws:iam::798747462898:role/amplify-awesomeproject-dev-114748-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::798747462898:role/amplify-awesomeproject-dev-114748-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-awesomeproject-dev-114748-deployment",
+      "UnauthRoleName": "amplify-awesomeproject-dev-114748-unauthRole",
+      "StackName": "amplify-awesomeproject-dev-114748",
+      "StackId": "arn:aws:cloudformation:us-east-1:798747462898:stack/amplify-awesomeproject-dev-114748/d7516600-1bc4-11ee-971c-12b44f5dead9",
+      "AmplifyAppId": "d121e4h98x0l9r"
+    }
+  },
+  "auth": {
+    "awesomeprojecta9aa5023": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-awesomeproject-dev-114748-deployment/amplify-cfn-templates/auth/awesomeprojecta9aa5023-cloudformation-template.yml",
+        "logicalId": "authawesomeprojecta9aa5023"
+      },
+      "lastPushTimeStamp": "2023-07-08T15:22:16.320Z",
+      "lastPushDirHash": "MSh4MaDwFpmXUi+1sedSetSzCFs="
+    }
+  },
+  "api": {
+    "awesomeproject": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authawesomeprojecta9aa5023"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        }
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-awesomeproject-dev-114748-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apiawesomeproject"
+      },
+      "lastPushTimeStamp": "2023-07-08T15:22:16.320Z",
+      "lastPushDirHash": "Kpe4c3nzIK0/rAOo5xJlK4zLMIM="
+    }
+  }
+}
