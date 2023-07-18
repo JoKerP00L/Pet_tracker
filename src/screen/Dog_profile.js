@@ -1,134 +1,10 @@
-// import React, { Component } from "react";
-// import {
-//   StyleSheet,
-//   View,
-//   ScrollView,
-//   Text,
-//   TouchableOpacity
-// } from "react-native";
-// import Icon from "react-native-vector-icons/Entypo";
-
-// function Home(props) {
-//   return (
-//     <View style={styles.container}>
-//       <View style={styles.scrollArea}>
-//         <ScrollView
-//           horizontal={false}
-//           contentContainerStyle={styles.scrollArea_contentContainerStyle}
-//         >
-//           <View style={styles.rect5}></View>
-//           <View style={styles.rect6}></View>
-//           <View style={styles.rect7}></View>
-//           <View style={styles.rect8}></View>
-//         </ScrollView>
-//       </View>
-//       <Text style={styles.comp}>complete setup{"\n"}and start</Text>
-//       <View style={styles.trackingRow}>
-//         <Text style={styles.tracking}>TRACKING</Text>
-//         <TouchableOpacity
-//           onPress={() => props.navigation.navigate("SplashScreen")}
-//           style={styles.button}
-//         ></TouchableOpacity>
-//       </View>
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1
-//   },
-//   scrollArea: {
-//     backgroundColor: "rgba(230, 230, 230,1)",
-//     marginTop: 198
-//   },
-//   scrollArea_contentContainerStyle: {
-//     height: 1000,
-//     justifyContent: "space-between",
-//     alignItems: "center"
-//   },
-//   rect5: {
-//     width: 288,
-//     height: 193,
-//     backgroundColor: "rgba(0,0,0,1)",
-//     borderRadius: 33,
-//     margin: 26
-//   },
-//   rect6: {
-//     width: 288,
-//     height: 213,
-//     backgroundColor: "rgba(0,0,0,1)",
-//     borderRadius: 33,
-//     margin: 26
-//   },
-//   rect7: {
-//     width: 288,
-//     height: 218,
-//     backgroundColor: "rgba(0,0,0,1)",
-//     borderRadius: 33,
-//     margin: 26
-//   },
-//   rect8: {
-//     width: 288,
-//     height: 194,
-//     backgroundColor: "rgba(0,0,0,1)",
-//     borderRadius: 33,
-//     marginTop: 0,
-//     margin: 26
-//   },
-//   comp: {
-//     fontFamily: "abel-regular",
-//     color: "#121212",
-//     fontSize: 26,
-//     alignSelf: "flex-end"
-//   },
-//   tracking: {
-//     fontFamily: "belanosima-700",
-//     color: "#fe692e",
-//     fontSize: 26,
-//     width: 143,
-//     height: 32,
-//     marginTop: 8
-//   },
-//   compColumn: {
-//     width: 155
-//   },
-//   button: {
-//     width: 61,
-//     height: 78,
-//     backgroundColor: "#E6E6E6",
-//     borderRadius: 15,
-//     marginLeft: 82,
-//     marginTop: 14
-//   },
-//   icon: {
-//     color: "rgba(128,128,128,1)",
-//     fontSize: 40,
-//     height: 43,
-//     width: 40,
-//     marginTop: 17,
-//     marginLeft: 11
-//   },
-//   compColumnRow: {
-//     height: 107,
-//     flexDirection: "row",
-//     marginTop: -1143,
-//     marginLeft: 15,
-//     marginRight: 47
-//   }
-// });
-
-// export default Home;
-
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
-// import assets from './assets';
 
 const DogProfilePage = () => {
   return (
     <View style={styles.container}>
       <Image
-        // source={require('./assets/hero_banner.jpg')}
         source={require('../../assets/background.png')}
         style={styles.heroBanner}
         resizeMode="cover"
@@ -136,7 +12,6 @@ const DogProfilePage = () => {
 
       <View style={styles.dogInfoContainer}>
         <Image
-          // source={require("./assets/splash.png")}
           source={require('../../assets/dog_image.jpg')}
           style={styles.dogImage}
           resizeMode="cover"
