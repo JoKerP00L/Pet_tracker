@@ -13,9 +13,9 @@ import { S3 } from 'aws-sdk';
 import * as ImagePicker from 'expo-image-picker';
 
 const s3 = new S3({
-  accessKeyId: 'AKIA3T6IPBTZF656JA3S',
-  secretAccessKey: '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',
-  region: 'us-east-1',
+  accessKeyId: 'ENTER_ACCESS_KEY',
+  secretAccessKey: 'ENTER_SECRET_ACCESS_KEY',
+  region: 'ENTER_REGION',
 });
 
 const PetInformationForm = () => {
@@ -51,7 +51,7 @@ const PetInformationForm = () => {
   };
 
   const storePetData = async (Pet) => {
-    const bucketName = 'amplify-awesomeproject-dev-104256-deployment';
+    const bucketName = 'ENTER_BUCKET_NAME';
     const objectKey = `Pets/${Pet.name}.json`;
 
     const params = {

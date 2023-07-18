@@ -3,11 +3,11 @@ import { View, Text, FlatList, Image, ActivityIndicator, StyleSheet, TouchableOp
 import { S3 } from 'aws-sdk';
 
 const s3 = new S3({
-    accessKeyId: 'AKIA3T6IPBTZF656JA3S',
-    secretAccessKey: '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',
-    region: 'us-east-1',
+    accessKeyId: 'ENTER_ACCESS_KEY',
+  secretAccessKey: 'ENTER_SECRET_ACCESS_KEY',
+    region: 'ENTER_REGION',
 });
-const bucketName = 'amplify-awesomeproject-dev-104256-deployment';
+const bucketName = 'ENTER_BUCKET_NAME';
 
 const Pet = () => {
   const [pets, setPets] = useState([]);
@@ -21,7 +21,7 @@ const Pet = () => {
 
   const fetchProductData = async () => {
         try {
-          const response = await s3.listObjectsV2({ Bucket: bucketName, Prefix: 'Pets/' }).promise();
+          const response = await s3.listObjectsV2({ Bucket: bucketName, Prefix: 'ENTER_FILE_PREFIX' }).promise();
           const productKeys = response.Contents.map((object) => object.Key);
           const productData = await Promise.all(
             productKeys.map((key) => s3.getObject({ Bucket: bucketName, Key: key }).promise())
