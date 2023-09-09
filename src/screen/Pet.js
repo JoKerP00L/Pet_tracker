@@ -3,11 +3,11 @@ import { View, Text, FlatList, Image, ActivityIndicator, StyleSheet, TouchableOp
 import { S3 } from 'aws-sdk';
 
 const s3 = new S3({
-    accessKeyId: 'AKIA3T6IPBTZF656JA3S',
-    secretAccessKey: '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',
-    region: 'us-east-1',
+    accessKeyId: 'ENTER_ACCESS_KEY',
+  secretAccessKey: 'ENTER_SECRET_ACCESS_KEY',
+    region: 'ENTER_REGION',
 });
-const bucketName = 'amplify-awesomeproject-dev-104256-deployment';
+const bucketName = 'ENTER_BUCKET_NAME';
 
 const Pet = () => {
   const [pets, setPets] = useState([]);
@@ -21,7 +21,7 @@ const Pet = () => {
 
   const fetchProductData = async () => {
         try {
-          const response = await s3.listObjectsV2({ Bucket: bucketName, Prefix: 'Pets/' }).promise();
+          const response = await s3.listObjectsV2({ Bucket: bucketName, Prefix: 'ENTER_FILE_PREFIX' }).promise();
           const productKeys = response.Contents.map((object) => object.Key);
           const productData = await Promise.all(
             productKeys.map((key) => s3.getObject({ Bucket: bucketName, Key: key }).promise())
@@ -180,119 +180,3 @@ const styles = StyleSheet.create({
 });
 
 export default Pet;
-
-//og woring code
-// import React, { useEffect, useState } from 'react';
-// import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-// import MapView, { Marker } from 'react-native-maps';
-// import * as Location from 'expo-location';
-
-// const Pet = () => {
-//   const [location, setLocation] = useState(null);
-//   const [currentRegion, setCurrentRegion] = useState(null);
-
-//   useEffect(() => {
-//     getLocation();
-//   }, []);
-
-//   const getLocation = async () => {
-//     const { status } = await Location.requestForegroundPermissionsAsync();
-
-//     if (status === 'granted') {
-//       const location = await Location.getCurrentPositionAsync({});
-//       setLocation(location);
-//       setCurrentRegion({
-//         latitude: location.coords.latitude,
-//         longitude: location.coords.longitude,
-//         latitudeDelta: 0.02,
-//         longitudeDelta: 0.02,
-//       });
-//     }
-//   };
-
-//   const handleRefresh = () => {
-//     getLocation();
-//   };
-
-//   const handleViewCurrentLocation = () => {
-//     if (location) {
-//       setCurrentRegion({
-//         latitude: location.coords.latitude,
-//         longitude: location.coords.longitude,
-//         latitudeDelta: 0.02,
-//         longitudeDelta: 0.02,
-//       });
-//     }
-//   };
-
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.title}>Pet Tracking</Text>
-
-//       {location ? (
-//         <View style={styles.mapContainer}>
-//           <MapView
-//             style={styles.map}
-//             region={currentRegion}
-//           >
-//             <Marker
-//               coordinate={{
-//                 latitude: location.coords.latitude,
-//                 longitude: location.coords.longitude,
-//               }}
-//               title="Current Location"
-//             />
-//           </MapView>
-//         </View>
-//       ) : (
-//         <Text>Loading location...</Text>
-//       )}
-
-//       <TouchableOpacity style={styles.button} onPress={handleRefresh}>
-//         <Text style={styles.buttonText}>Refresh Location</Text>
-//       </TouchableOpacity>
-
-//       <TouchableOpacity style={styles.button} onPress={handleViewCurrentLocation}>
-//         <Text style={styles.buttonText}>View Current Location</Text>
-//       </TouchableOpacity>
-//     </View>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//   },
-//   title: {
-//     fontSize: 24,
-//     fontWeight: 'bold',
-//     marginBottom: 16,
-//   },
-//   mapContainer: {
-//     width: '80%',
-//     height: '50%',
-//     borderWidth: 2,
-//     borderColor: '#00000',
-//     borderRadius: 8,
-//     overflow: 'hidden',
-//   },
-//   map: {
-//     flex: 1,
-//   },
-//   button: {
-//     marginTop: 16,
-//     paddingVertical: 12,
-//     paddingHorizontal: 24,
-//     backgroundColor: '#FFA500',
-//     borderRadius: 8,
-//   },
-//   buttonText: {
-//     fontSize: 18,
-//     fontWeight: 'bold',
-//     color: '#fff',
-//   },
-// });
-
-// export default Pet;

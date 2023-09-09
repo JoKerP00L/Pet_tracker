@@ -13,9 +13,9 @@ import { S3 } from 'aws-sdk';
 import * as ImagePicker from 'expo-image-picker';
 
 const s3 = new S3({
-  accessKeyId: 'AKIA3T6IPBTZF656JA3S',
-  secretAccessKey: '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',
-  region: 'us-east-1',
+  accessKeyId: 'ENTER_ACCESS_KEY',
+  secretAccessKey: 'ENTER_SECRET_ACCESS_KEY',
+  region: 'ENTER_REGION',
 });
 
 const PetInformationForm = () => {
@@ -51,7 +51,7 @@ const PetInformationForm = () => {
   };
 
   const storePetData = async (Pet) => {
-    const bucketName = 'amplify-awesomeproject-dev-104256-deployment';
+    const bucketName = 'ENTER_BUCKET_NAME';
     const objectKey = `Pets/${Pet.name}.json`;
 
     const params = {
@@ -179,7 +179,6 @@ const PetInformationForm = () => {
       {image && (
         <Image source={{ uri: image }} style={styles.previewImage} resizeMode="cover" />
       )}
-      {/* <Image source={{uri:pickerResult[0].uri}} style={styles.imageStyle}/> */}
 
       <TouchableOpacity style={styles.uploadButton} onPress={handleImageUpload}>
         <Text style={styles.uploadButtonText}>Upload Image</Text>
@@ -187,10 +186,6 @@ const PetInformationForm = () => {
       <TouchableOpacity style={styles.uploadButton} onPress={handleSubmit}>
         <Text style={styles.uploadButtonText}>Add Pet</Text>
       </TouchableOpacity>
-
-      {/* <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <Text style={styles.buttonText}>Submit</Text>
-      </TouchableOpacity> */}
     </View>
     </ScrollView>
   );
@@ -277,142 +272,3 @@ const styles = StyleSheet.create({
 });
 
 export default PetInformationForm;
-
-
-
-
-// import React, { useState } from 'react';
-// import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
-
-// const PetInformationForm = () => {
-//   const [name, setName] = useState('');
-//   const [ownername, setOwnerName] = useState('');
-//   const [type, setType] = useState('');
-//   const [breed, setBreed] = useState('');
-//   const [gender, setGender] = useState('');
-//   const [age, setAge] = useState('');
-//   const [weight, setWeight] = useState('');
-
-//   const handleSubmit = () => {
-//     // Handle form submission here
-//     console.log('Form submitted');
-//     console.log('Name:', name);
-//     console.log('ownername:', ownername);
-//     console.log('Type:', type);
-//     console.log('Breed:', breed);
-//     console.log('Gender:', gender);
-//     console.log('Age:', age);
-//     console.log('Weight:', weight);
-//   };
-
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.title}>Pet Information Form</Text>
-
-//       <TextInput
-//         style={styles.input}
-//         placeholder="Name of the pet"
-//         value={name}
-//         onChangeText={setName}
-//       />
-
-//       <TextInput
-//         style={styles.input}
-//         placeholder="Name of the pet owner"
-//         value={ownername}
-//         onChangeText={setOwnerName}
-//       />
-
-//       <TextInput
-//         style={styles.input}
-//         placeholder="Type of pet"
-//         value={type}
-//         onChangeText={setType}
-//       />
-
-//      {/* <RadioGroup
-//       style={styles.input}
-//       placeholder="select gender of pet"
-//       value={gender}
-//       onChangeText={setGender}
-//       /> */}
-
-//     <Text style={styles.label}>Gender:</Text>
-//       <View style={styles.radioGroup}>
-//         <TouchableOpacity
-//           style={[styles.radioButton, gender === 'male' && styles.radioButtonSelected]}
-//           onPress={() => setGender('male')}
-//         >
-//           <Text style={[styles.radioButtonLabel, gender === 'male' && styles.radioButtonLabelSelected]}>Male</Text>
-//         </TouchableOpacity>
-//         <TouchableOpacity
-//           style={[styles.radioButton, gender === 'female' && styles.radioButtonSelected]}
-//           onPress={() => setGender('female')}
-//         >
-//           <Text style={[styles.radioButtonLabel, gender === 'female' && styles.radioButtonLabelSelected]}>Female</Text>
-//         </TouchableOpacity>
-//       </View>
-
-//       <TextInput
-//         style={styles.input}
-//         placeholder="Breed"
-//         value={breed}
-//         onChangeText={setBreed}
-//       />
-
-//       <TextInput
-//         style={styles.input}
-//         placeholder="Age"
-//         value={age}
-//         onChangeText={setAge}
-//       />
-
-//       <TextInput
-//         style={styles.input}
-//         placeholder="Weight"
-//         value={weight}
-//         onChangeText={setWeight}
-//       />
-
-//       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-//         <Text style={styles.buttonText}>Submit</Text>
-//       </TouchableOpacity>
-//     </View>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     paddingHorizontal: 16,
-//     backgroundColor: '#fff',
-//   },
-//   title: {
-//     fontSize: 24,
-//     fontWeight: 'bold',
-//     marginBottom: 24,
-//     textAlign: 'center',
-//   },
-//   input: {
-//     height: 40,
-//     borderWidth: 1,
-//     borderColor: '#ccc',
-//     borderRadius: 8,
-//     marginBottom: 16,
-//     paddingHorizontal: 12,
-//   },
-//   button: {
-//     backgroundColor: '#FFA500',
-//     paddingVertical: 12,
-//     borderRadius: 8,
-//   },
-//   buttonText: {
-//     fontSize: 18,
-//     fontWeight: 'bold',
-//     color: '#fff',
-//     textAlign: 'center',
-//   },
-// });
-
-// export default PetInformationForm;
